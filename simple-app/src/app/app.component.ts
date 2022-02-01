@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SwapiService } from './service/swapi.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,5 @@ import { SwapiService } from './service/swapi.service';
 export class AppComponent {
   title = 'simple-app';
 
-  constructor(swapiService: SwapiService) {
-    swapiService.getPeople().subscribe((data) => console.log(data));
-  }
+  constructor() {}
 }
