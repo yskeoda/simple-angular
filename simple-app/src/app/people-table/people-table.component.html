@@ -13,12 +13,12 @@
 
     <ng-container matColumnDef="created">
       <th mat-header-cell *matHeaderCellDef>Created</th>
-      <td mat-cell *matCellDef="let row">{{ row.created }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.created | date:'medium' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="edited">
       <th mat-header-cell *matHeaderCellDef>Edited</th>
-      <td mat-cell *matCellDef="let row">{{ row.edited }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.edited | date:'medium' }}</td>
     </ng-container>    
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
