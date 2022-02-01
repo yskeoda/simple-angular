@@ -11,7 +11,7 @@ export class SwapiService {
 
   constructor(private http: HttpClient) {}
 
-  getPeople(): Observable<object[]> {
-    return this.http.get<object[]>(this.peopleUrl);
+  getPeople(): Observable<any> {
+    return this.http.get<any>(this.peopleUrl);
   }
 }

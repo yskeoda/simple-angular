@@ -1,1 +1,9 @@
-<p>summary works!</p>
+<ng-container *ngIf="people$ | async as data; else loading">
+  <app-people-table
+    [data]="data"
+    (rowClick)="onRowClick($event)"
+  ></app-people-table>
+</ng-container>
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
