@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -31,6 +32,7 @@ import { SummaryComponent } from './summary/summary.component';
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule
   ],

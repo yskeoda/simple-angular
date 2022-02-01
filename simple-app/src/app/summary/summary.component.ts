@@ -17,12 +17,33 @@ export class SummaryComponent implements OnInit {
     private swapiService: SwapiService,
     private formBuilder: FormBuilder
   ) {
-    this.form = this.formBuilder.group({ name: ['', Validators.required] });
+    this.form = this.formBuilder.group({ 
+      name: ['', Validators.required],
+      height: ['test', Validators.required],
+      mass: ['aaa', Validators.required],
+      hair_color: ['', Validators.required],
+      eye_color: ['', Validators.required],
+      birth_year: ['', Validators.required],
+      gender: ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {}
 
   onRowClick(person: any, stepper: MatStepper): void {
+    this.form.setValue({ 
+      name: person.name,
+      height: person.height,
+      mass: person.mass,
+      hair_color: person.hair_color,
+      eye_color: person.eye_color,
+      birth_year: person.birth_year,
+      gender: person.gender
+    });
     stepper.next();
+  }
+
+  onSubmit(): void {
+    console.log(this.form.value);
   }
 }

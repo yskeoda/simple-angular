@@ -10,11 +10,46 @@
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
   </mat-step>
-  <mat-step [stepControl]="form" label="Make edits">
-    <form [formGroup]="form">
-      <mat-form-field appearance="fill">
-
+  <mat-step [stepControl]="form" label="Details">
+    <form class="form-area" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
       </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Height</mat-label>
+        <input matInput formControlName="height" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Mass</mat-label>
+        <input matInput formControlName="mass" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Hair Color</mat-label>
+        <input matInput formControlName="hair_color" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Eye Color</mat-label>
+        <input matInput formControlName="eye_color" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Birth Year</mat-label>
+        <input matInput formControlName="birth_year" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Gender</mat-label>
+        <input matInput formControlName="gender" required />
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button>Save</button>
+      </div>
     </form>
   </mat-step>
 </mat-stepper>
