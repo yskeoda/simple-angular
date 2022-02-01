@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { SwapiService } from '../service/swapi.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { SwapiService } from '../service/swapi.service';
   styleUrls: ['./summary.component.scss'],
 })
 export class SummaryComponent implements OnInit {
-  people$ = this.swapiService.getPeople().pipe(map((x) => x.results));
+  people$!: Observable<any>;
   form: FormGroup;
 
   constructor(
@@ -19,8 +19,8 @@ export class SummaryComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({ 
       name: ['', Validators.required],
-      height: ['test', Validators.required],
-      mass: ['aaa', Validators.required],
+      height: ['', Validators.required],
+      mass: ['', Validators.required],
       hair_color: ['', Validators.required],
       eye_color: ['', Validators.required],
       birth_year: ['', Validators.required],
@@ -28,7 +28,9 @@ export class SummaryComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.people$ = this.swapiService.getPeople().pipe(map((x) => x.results));
+  }
 
   onRowClick(person: any, stepper: MatStepper): void {
     this.form.setValue({ 
@@ -40,6 +42,7 @@ export class SummaryComponent implements OnInit {
       birth_year: person.birth_year,
       gender: person.gender
     });
+
     stepper.next();
   }
 
