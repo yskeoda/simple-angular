@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { map, tap } from 'rxjs';
+import { map } from 'rxjs';
 import { SwapiService } from '../service/swapi.service';
 
 @Component({
@@ -9,16 +8,11 @@ import { SwapiService } from '../service/swapi.service';
   styleUrls: ['./summary.component.scss'],
 })
 export class SummaryComponent implements OnInit {
-  people$ = this.swapiService.getPeople().pipe(map(x => x.results));
+  people$ = this.swapiService.getPeople().pipe(map((x) => x.results));
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private swapiService: SwapiService
-  ) {}
+  constructor(private swapiService: SwapiService) {}
 
   ngOnInit(): void {}
 
-  onRowClick(person: any): void {    
-  }
+  onRowClick(person: any): void {}
 }

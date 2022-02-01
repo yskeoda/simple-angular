@@ -22,7 +22,6 @@ export class PeopleTableComponent implements OnInit {
   ngOnInit(): void {}
 
   onRowClick(row: any): void {
-    console.log(row);
     this.rowClick.emit(row);
   }
 }
